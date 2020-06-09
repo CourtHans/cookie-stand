@@ -15,7 +15,7 @@ function generateRandomNumber(min, max) {
 
 //==========function to render to page=======
 function renderStore() {
-  var storeList = document.getElementById('seattle-list');
+  var storeList = document.getElementById(this.id);
   var storeStats = document.createElement('h2');
   storeStats.textContent = this.location;
   storeList.appendChild(storeStats);
@@ -31,10 +31,31 @@ function renderStore() {
   storeList.appendChild(storeStats);
 }
 
+//==========function to render to TABLE=======
+function renderStoreInTable() {
+  //creating a target
+  var table = document.getElementById(this.id);
+  //making a new child element in the parent
+  var tableRow = document.createElement('tr');
+
+  var tableCell = document.createElement('td');
+  tableCell.textContent = this.location;
+  tableRow.appendChild(tableCell);
+
+  for (var i = 0; i < operatingHours.length; i++) {
+
+    tableCell = document.createElement('td');
+    tableCell.textContent = operatingHours[i];
+    tableRow.appendChild(tableCell);
+  }
+
+  table.appendChild(tableRow);
+
+}
 
 //==========New store constructor======
-function Store(location, minNum, maxNum, avgCookiePerCust) {
-  this.id = "seattle-list";
+function Store(id, location, minNum, maxNum, avgCookiePerCust) {
+  this.id = id;
   this.location = location + ' store';
   this.minNum = minNum;
   this.maxNum = maxNum;
@@ -42,7 +63,7 @@ function Store(location, minNum, maxNum, avgCookiePerCust) {
   this.dailyHourSales = [];
   this.dailyTotalSales = 0;
 }
-
+//==========create hourlyTraffic method=========
 Store.prototype.hourlyTraffic = function () {
   for (var i = 0; i < operatingHours.length; i++) {
     var footTraffic = generateRandomNumber(this.minNum, this.maxNum);
@@ -51,16 +72,19 @@ Store.prototype.hourlyTraffic = function () {
     this.dailyTotalSales += hourlySalesTotal;
   }
 };
-
-//===========Seattle store from constructor==============
-
+//==attach renderToPage method to Store constructor
 Store.prototype.renderToPage = renderStore;
 
-// Store.prototype.renderStoreInTable = renderStoreInTable;
+//==attach renderStoreInTable method to Store constructor
+Store.prototype.renderStoreInTable = renderStoreInTable;
 
-var seattleStats = new Store('Seattle', 23, 64, 6.3);
-seattleStats.hourlyTraffic();
-seattleStats.renderToPage();
+//===========Seattle store from constructor==============
+var seattleStats = new Store('seattle-table', 'Seattle', 23, 64, 6.3);
+
+//=====get the words on the page======
+seattleStats.hourlyTraffic(); //1st - fill it
+// seattleStats.renderToPage(); //2nd - render it (unnecessary bc now in table)
+seattleStats.renderStoreInTable(); // render in table
 
 
 
