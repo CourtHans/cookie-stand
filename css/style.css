@@ -1,3 +1,41 @@
 body {
   background-color: rgb(218, 187, 184);
 }
+
+header, footer {
+  background-color: rgb(184, 133, 129);;
+  border-top: solid; color:rgb(19, 38, 19);
+  border-bottom: solid; color:rgb(19, 38, 19);
+}
+
+header {
+  text-align: center;
+  
+}
+
+header > h1, h3 {
+  color: rgb(67, 27, 25); 
+}
+
+/* only centering while place-holding */
+main {
+  text-align: center;
+}
+
+/* set footer box */
+footer {
+  margin: 0px auto;
+  height: 40px;
+}
+
+footer > nav > ul {
+margin-top: 10px;
+}
+
+/* center navigation links within footer */
+footer > nav > ul > li {
+  color: rgb(67, 27, 25); 
+  display: inline-block;
+  width: 600px;
+  text-align: center; 
+}
