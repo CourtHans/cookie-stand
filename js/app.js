@@ -34,22 +34,24 @@ function renderStore() {
 //==========function to render to TABLE=======
 function renderStoreInTable() {
   //creating a target
-  var table = document.getElementById(this.id);
+  var table = document.getElementById(this.id); //table becomes grandparent!
   //making a new child element in the parent
   var tableRow = document.createElement('tr');
 
-  var tableCell = document.createElement('td');
+  var tableCell = document.createElement('td'); //new (grand) child element
   tableCell.textContent = this.location;
-  tableRow.appendChild(tableCell);
+  tableRow.appendChild(tableCell); //append back to its parent
 
-  for (var i = 0; i < operatingHours.length; i++) {
+  for (var i = 0; i < this.dailyHourSales.length; i++) {
 
     tableCell = document.createElement('td');
-    tableCell.textContent = operatingHours[i];
-    tableRow.appendChild(tableCell);
+    tableCell.textContent = this.dailyHourSales[i];
+    tableRow.appendChild(tableCell); //append back to its parent
   }
-
-  table.appendChild(tableRow);
+  var tableCellTotal = document.createElement('td');
+  tableCellTotal.textContent = this.dailyTotalSales;
+  tableRow.appendChild(tableCellTotal);
+  table.appendChild(tableRow); //append back to its parent
 
 }
 
@@ -78,61 +80,25 @@ Store.prototype.renderToPage = renderStore;
 //==attach renderStoreInTable method to Store constructor
 Store.prototype.renderStoreInTable = renderStoreInTable;
 
-//===========Seattle store from constructor==============
+//===========Creating stores from constructor==============
 var seattleStats = new Store('seattle-table', 'Seattle', 23, 64, 6.3);
+var tokyoStats = new Store('tokyo-table', 'Tokyo', 3, 24, 1.2);
+var dubaiStats = new Store('dubai-table', 'Dubai', 11, 38, 3.7);
+var parisStats = new Store('paris-table', 'Paris', 20, 38, 2.3);
+var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
 
 //=====get the words on the page======
-seattleStats.hourlyTraffic(); //1st - fill it
-// seattleStats.renderToPage(); //2nd - render it (unnecessary bc now in table)
-seattleStats.renderStoreInTable(); // render in table
+seattleStats.hourlyTraffic(); //1st - fill in some info via method
+seattleStats.renderStoreInTable(); // 2nd render in table
 
+tokyoStats.hourlyTraffic();
+tokyoStats.renderStoreInTable();
 
+dubaiStats.hourlyTraffic();
+dubaiStats.renderStoreInTable();
 
-//===========Seattle store OLD/object literal ==============
-// var seattleStats0 = {
-//   location: 'Seattle',
-//   minNum: 23,
-//   maxNum: 64,
-//   avgCookiePerCust: 6.3,
-//   dailyHourSales: [], //will hold the sales numbers calculated via hourlyTraffic loop above in an array
-//   dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via hourlyTraffic loop above
-//   // calculate daily total sales by adding all hourly sales
-//   hourlyTraffic:
+parisStats.hourlyTraffic();
+parisStats.renderStoreInTable();
 
-//     renderToPage: function() {
-//       //Step 1: identify target
-//       var storeList = document.getElementById('seattle-list');
-//       //Step 2: create new element
-//       var storeStats = document.createElement('h2');
-//       //Step 2.5: get content
-//       storeStats.textContent = this.location;
-//       //Step 3: insert element/content into target
-//       storeList.appendChild(storeStats);
-
-//       //write list of hours and hourly sales
-//       for (var i = 0; i < operatingHours.length; i++) {
-//         storeStats = document.createElement('li');
-//         storeStats.textContent = operatingHours[i] + ' : ' + this.dailyHourSales[i] + ' cookies';
-//         storeList.appendChild(storeStats);
-//       }
-//       storeStats = document.createElement('li');
-//       storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
-//       storeList.appendChild(storeStats);
-//     }
-// };
-
-
-
-// //===========call the functions!=============
-// console.log('dailyHourSales', seattleStats.dailyHourSales);
-// console.log('dailyTotalSales', seattleStats.dailyTotalSales);
-// seattleStats.hourlyTraffic();
-// seattleStats.renderToPage();
-// hourlyTraffic(tokyoStats);
-// tokyoStats.renderToPage();
-// hourlyTraffic(dubaiStats);
-// dubaiStats.renderToPage();
-// hourlyTraffic(parisStats);
-// parisStats.renderToPage();
-// hourlyTraffic(limaStats);
-// limaStats.renderToPage();
+limaStats.hourlyTraffic();
+limaStats.renderStoreInTable();
