@@ -11,6 +11,7 @@ function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//===========function for Seattle store==============
 function hourlyTraffic(seattleStats) {
   for (var i = 0; i < operatingHours.length; i++) {
     var footTraffic = generateRandomNumber(seattleStats.minNumSeattle, seattleStats.maxNumSeattle);
@@ -50,13 +51,151 @@ var seattleStats = {
     storeStats = document.createElement('li');
     storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
     storeList.appendChild(storeStats);
-    //add in total sales
-    // storeStats = document.createElement('li');
-    // storeStats = textContent = this.location;
-    // storeList.appendChild()
   }
 };
 
-console.log('dailyHourSales', seattleStats.dailyHourSales);
+//===========Tokyo store==============
+var tokyoStats = {
+  location: 'Tokyo',
+  minNumTokyo: 3,
+  maxNumTokyo: 24,
+  avgCookiePerCust: 1.2,
+  dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
+  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
+  // calculate daily total sales by adding all hourly sales
+
+
+  renderToPage: function () {
+    //Step 1: identify target
+    var storeList = document.getElementById('tokyo-list');
+    //Step 2: create new element
+    var storeStats = document.createElement('h2');
+    //Step 2.5: get content
+    storeStats.textContent = this.location;
+    //Step 3: insert element/content into target
+    storeList.appendChild(storeStats);
+
+    //write list of hours and hourly sales
+    for (var i = 0; i < operatingHours.length; i++) {
+      storeStats = document.createElement('li');
+      storeStats.textContent = operatingHours[i] + ' : ' + this.dailyHourSales[i] + ' cookies';
+      storeList.appendChild(storeStats);
+    }
+    storeStats = document.createElement('li');
+    storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
+    storeList.appendChild(storeStats);
+  }
+};
+
+
+//===========Dubai store==============
+var dubaiStats = {
+  location: 'Dubai',
+  minNumDubai: 11,
+  maxNumDubai: 38,
+  avgCookiePerCust: 3.7,
+  dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
+  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
+  // calculate daily total sales by adding all hourly sales
+
+
+  renderToPage: function () {
+    //Step 1: identify target
+    var storeList = document.getElementById('dubai-list');
+    //Step 2: create new element
+    var storeStats = document.createElement('h2');
+    //Step 2.5: get content
+    storeStats.textContent = this.location;
+    //Step 3: insert element/content into target
+    storeList.appendChild(storeStats);
+
+    //write list of hours and hourly sales
+    for (var i = 0; i < operatingHours.length; i++) {
+      storeStats = document.createElement('li');
+      storeStats.textContent = operatingHours[i] + ' : ' + this.dailyHourSales[i] + ' cookies';
+      storeList.appendChild(storeStats);
+    }
+    storeStats = document.createElement('li');
+    storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
+    storeList.appendChild(storeStats);
+  }
+};
+
+//===========Paris store==============
+var parisStats = {
+  location: 'Paris',
+  minNumParis: 20,
+  maxNumParis: 38,
+  avgCookiePerCust: 2.3,
+  dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
+  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
+  // calculate daily total sales by adding all hourly sales
+
+
+  renderToPage: function () {
+    //Step 1: identify target
+    var storeList = document.getElementById('paris-list');
+    //Step 2: create new element
+    var storeStats = document.createElement('h2');
+    //Step 2.5: get content
+    storeStats.textContent = this.location;
+    //Step 3: insert element/content into target
+    storeList.appendChild(storeStats);
+
+    //write list of hours and hourly sales
+    for (var i = 0; i < operatingHours.length; i++) {
+      storeStats = document.createElement('li');
+      storeStats.textContent = operatingHours[i] + ' : ' + this.dailyHourSales[i] + ' cookies';
+      storeList.appendChild(storeStats);
+    }
+    storeStats = document.createElement('li');
+    storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
+    storeList.appendChild(storeStats);
+  }
+};
+
+//===========Lima store==============
+var limaStats = {
+  location: 'Lima',
+  minNumLima: 2,
+  maxNumLima: 16,
+  avgCookiePerCust: 4.6,
+  dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
+  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
+  // calculate daily total sales by adding all hourly sales
+
+
+  renderToPage: function () {
+    //Step 1: identify target
+    var storeList = document.getElementById('lima-list');
+    //Step 2: create new element
+    var storeStats = document.createElement('h2');
+    //Step 2.5: get content
+    storeStats.textContent = this.location;
+    //Step 3: insert element/content into target
+    storeList.appendChild(storeStats);
+
+    //write list of hours and hourly sales
+    for (var i = 0; i < operatingHours.length; i++) {
+      storeStats = document.createElement('li');
+      storeStats.textContent = operatingHours[i] + ' : ' + this.dailyHourSales[i] + ' cookies';
+      storeList.appendChild(storeStats);
+    }
+    storeStats = document.createElement('li');
+    storeStats.textContent = 'Total : ' + this.dailyTotalSales + ' cookies';
+    storeList.appendChild(storeStats);
+  }
+};
+
+//===========call the functions!=============
+// console.log('dailyHourSales', seattleStats.dailyHourSales);
 hourlyTraffic(seattleStats);
 seattleStats.renderToPage();
+hourlyTraffic(tokyoStats);
+tokyoStats.renderToPage();
+hourlyTraffic(dubaiStats);
+dubaiStats.renderToPage();
+hourlyTraffic(parisStats);
+parisStats.renderToPage();
+hourlyTraffic(limaStats);
+limaStats.renderToPage();
