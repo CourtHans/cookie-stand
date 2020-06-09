@@ -31,10 +31,32 @@ function renderStore() {
   storeList.appendChild(storeStats);
 }
 
-//==========function to render to TABLE=======
+//==========function to render to a row within TABLE=======
+// TODO: need to change to render to a row in a table?
+
+function makeTableHeader(){
+  var table = document.getElementById('store-table');
+  var theTableHeader = document.createElement('tr');
+  var tableStoreHeading = document.createElement('th');
+  tableStoreHeading.textContent = 'Store';
+  theTableHeader.appendChild(tableStoreHeading);
+
+  for (var i = 0; i < operatingHours.length; i++){
+    var tableHourHeadings = document.createElement('th');
+    tableHourHeadings.textContent = operatingHours[i];
+    theTableHeader.appendChild(tableHourHeadings);
+  }
+  var tableTableHeading = document.createElement('th');
+  tableTableHeading.textContent = 'Daily Total';
+  theTableHeader.appendChild(tableTableHeading);
+
+  table.appendChild(theTableHeader);
+}
+
 function renderStoreInTable() {
   //creating a target
-  var table = document.getElementById(this.id); //table becomes grandparent!
+  var table = document.getElementById('store-table'); //table becomes grandparent!
+
   //making a new child element in the parent
   var tableRow = document.createElement('tr');
 
@@ -88,6 +110,8 @@ var parisStats = new Store('paris-table', 'Paris', 20, 38, 2.3);
 var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
 
 //=====get the words on the page======
+makeTableHeader();
+
 seattleStats.hourlyTraffic(); //1st - fill in some info via method
 seattleStats.renderStoreInTable(); // 2nd render in table
 
