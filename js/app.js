@@ -10,25 +10,35 @@ var operatingHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',
 function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-//===========function for Seattle store==============
+// TODO: Figure out the daily pull
+//====function to pull hourly and total sales *BUT THINK ONLY PULLING SEATTLE?====
 function hourlyTraffic(seattleStats) {
   for (var i = 0; i < operatingHours.length; i++) {
-    var footTraffic = generateRandomNumber(seattleStats.minNumSeattle, seattleStats.maxNumSeattle);
+    var footTraffic = generateRandomNumber(seattleStats.minNum, seattleStats.maxNum);
     var hourlySalesTotal = Math.round(footTraffic * seattleStats.avgCookiePerCust);
     seattleStats.dailyHourSales.push(hourlySalesTotal);
     seattleStats.dailyTotalSales += hourlySalesTotal;
   }
 }
 
+//=======test universal======
+// var hourlyTraffic = function() {
+//   for (var i = 0; i < operatingHours.length; i++) {
+//     var footTraffic = generateRandomNumber(this.minNum, this.maxNum);
+//     var hourlySalesTotal = Math.round(footTraffic * this.avgCookiePerCust);
+//     this.dailyHourSales.push(hourlySalesTotal);
+//     this.dailyTotalSales += hourlySalesTotal;
+//   }
+// };
+
 //===========Seattle store==============
 var seattleStats = {
   location: 'Seattle',
-  minNumSeattle: 23,
-  maxNumSeattle: 64,
+  minNum: 23,
+  maxNum: 64,
   avgCookiePerCust: 6.3,
-  dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
-  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
+  dailyHourSales: [], //will hold the sales numbers calculated via hourlyTraffic loop above in an array
+  dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via hourlyTraffic loop above
   // calculate daily total sales by adding all hourly sales
 
 
@@ -57,8 +67,8 @@ var seattleStats = {
 //===========Tokyo store==============
 var tokyoStats = {
   location: 'Tokyo',
-  minNumTokyo: 3,
-  maxNumTokyo: 24,
+  minNum: 3,
+  maxNum: 24,
   avgCookiePerCust: 1.2,
   dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
   dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
@@ -87,12 +97,11 @@ var tokyoStats = {
   }
 };
 
-
 //===========Dubai store==============
 var dubaiStats = {
   location: 'Dubai',
-  minNumDubai: 11,
-  maxNumDubai: 38,
+  minNum: 11,
+  maxNum: 38,
   avgCookiePerCust: 3.7,
   dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
   dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
@@ -124,8 +133,8 @@ var dubaiStats = {
 //===========Paris store==============
 var parisStats = {
   location: 'Paris',
-  minNumParis: 20,
-  maxNumParis: 38,
+  minNum: 20,
+  maxNum: 38,
   avgCookiePerCust: 2.3,
   dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
   dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
@@ -157,8 +166,8 @@ var parisStats = {
 //===========Lima store==============
 var limaStats = {
   location: 'Lima',
-  minNumLima: 2,
-  maxNumLima: 16,
+  minNum: 2,
+  maxNum: 16,
   avgCookiePerCust: 4.6,
   dailyHourSales: [], //will hold the sales numbers calculated via calculateEachHourCookieSales loop below in an array
   dailyTotalSales: 0, //will hold the DAILY sales numbers calculated via calculateDailySales loop below
@@ -188,7 +197,8 @@ var limaStats = {
 };
 
 //===========call the functions!=============
-// console.log('dailyHourSales', seattleStats.dailyHourSales);
+console.log('dailyHourSales', seattleStats.dailyHourSales);
+console.log('dailyTotalSales', seattleStats.dailyTotalSales);
 hourlyTraffic(seattleStats);
 seattleStats.renderToPage();
 hourlyTraffic(tokyoStats);
