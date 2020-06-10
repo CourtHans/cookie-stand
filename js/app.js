@@ -32,7 +32,6 @@ function renderStore() {
 }
 
 //==========function to render to a row within TABLE=======
-// TODO: need to change to render to a row in a table?
 
 function makeTableHeader(){
   var table = document.getElementById('store-table');
@@ -46,11 +45,32 @@ function makeTableHeader(){
     tableHourHeadings.textContent = operatingHours[i];
     theTableHeader.appendChild(tableHourHeadings);
   }
-  var tableTableHeading = document.createElement('th');
-  tableTableHeading.textContent = 'Daily Total';
-  theTableHeader.appendChild(tableTableHeading);
+  var tableDailyTotalHeading = document.createElement('th');
+  tableDailyTotalHeading.textContent = 'Daily Total';
+  theTableHeader.appendChild(tableDailyTotalHeading);
 
   table.appendChild(theTableHeader);
+}
+
+//========make a footer for table with daily total sales by hour
+
+function makeTableFooter(){
+  var table = document.getElementById('store-table');
+  var theTableFooter = document.createElement('tr');
+  var tableHourlyTotalFooter = document.createElement('th');
+  tableHourlyTotalFooter.textContent = 'Hourly totals';
+  theTableFooter.appendChild(tableHourlyTotalFooter);
+
+  for (var i = 0; i < operatingHours.length; i++){
+    var tableFooterTotals = document.createElement('td');
+    tableFooterTotals.textContent = 'need total';
+    theTableFooter.appendChild(tableFooterTotals);
+  }
+  var tableFooterAllUpTotal = document.createElement('td');
+  tableFooterAllUpTotal.textContent = 'FULL total!';
+  theTableFooter.appendChild(tableFooterAllUpTotal);
+
+  table.appendChild(theTableFooter);
 }
 
 function renderStoreInTable() {
@@ -60,7 +80,7 @@ function renderStoreInTable() {
   //making a new child element in the parent
   var tableRow = document.createElement('tr');
 
-  var tableCell = document.createElement('td'); //new (grand) child element
+  var tableCell = document.createElement('th'); //new (grand) child element
   tableCell.textContent = this.location;
   tableRow.appendChild(tableCell); //append back to its parent
 
@@ -76,7 +96,6 @@ function renderStoreInTable() {
   table.appendChild(tableRow); //append back to its parent
 
 }
-
 //==========New store constructor======
 function Store(id, location, minNum, maxNum, avgCookiePerCust) {
   this.id = id;
@@ -126,3 +145,5 @@ parisStats.renderStoreInTable();
 
 limaStats.hourlyTraffic();
 limaStats.renderStoreInTable();
+
+makeTableFooter();
