@@ -49,8 +49,8 @@ function makeTableFooter(){
     tableFooterTotals.textContent = seattleStats.dailyHourSales[i] + tokyoStats.dailyHourSales[i] + dubaiStats.dailyHourSales[i] + parisStats.dailyHourSales[i] + limaStats.dailyHourSales[i]; //is there a cleaner/more scalable way to do this?
     theTableFooter.appendChild(tableFooterTotals);
   }
-  var tableFooterAllUpTotal = document.createElement('td');
-  tableFooterAllUpTotal.textContent = 'FULL total!'; // TODO need actual totals
+  var tableFooterAllUpTotal = document.createElement('th');
+  tableFooterAllUpTotal.textContent = seattleStats.dailyTotalSales + tokyoStats.dailyTotalSales + dubaiStats.dailyTotalSales + parisStats.dailyTotalSales + limaStats.dailyTotalSales; //is there a cleaner/more scalable way to do this?
   theTableFooter.appendChild(tableFooterAllUpTotal);
 
   table.appendChild(theTableFooter);
@@ -75,7 +75,7 @@ function renderStoreInTable() {
     tableCell.textContent = this.dailyHourSales[i];
     tableRow.appendChild(tableCell); //append back to its parent
   }
-  var tableCellTotal = document.createElement('td');
+  var tableCellTotal = document.createElement('th');
   tableCellTotal.textContent = this.dailyTotalSales;
   tableRow.appendChild(tableCellTotal);
   table.appendChild(tableRow); //append back to its parent
