@@ -5,7 +5,7 @@
 
 
 //=========global variables============
-var operatingHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
 
 
 //=======random number generator=======
@@ -31,7 +31,7 @@ function renderStore() {
   storeList.appendChild(storeStats);
 }
 
-//==========function to render to a row within TABLE=======
+//==========function to render to a header row within TABLE=======
 
 function makeTableHeader(){
   var table = document.getElementById('store-table');
@@ -63,11 +63,11 @@ function makeTableFooter(){
 
   for (var i = 0; i < operatingHours.length; i++){
     var tableFooterTotals = document.createElement('td');
-    tableFooterTotals.textContent = 'need total';
+    tableFooterTotals.textContent = 'need total'; // TODO need actual totals
     theTableFooter.appendChild(tableFooterTotals);
   }
   var tableFooterAllUpTotal = document.createElement('td');
-  tableFooterAllUpTotal.textContent = 'FULL total!';
+  tableFooterAllUpTotal.textContent = 'FULL total!'; //need actual totals
   theTableFooter.appendChild(tableFooterAllUpTotal);
 
   table.appendChild(theTableFooter);
@@ -106,8 +106,8 @@ function Store(id, location, minNum, maxNum, avgCookiePerCust) {
   this.dailyHourSales = [];
   this.dailyTotalSales = 0;
 }
-//==========create hourlyTraffic method=========
-Store.prototype.hourlyTraffic = function () {
+//==========create hourlyCookieSales method=========
+Store.prototype.hourlyCookieSales = function () {
   for (var i = 0; i < operatingHours.length; i++) {
     var footTraffic = generateRandomNumber(this.minNum, this.maxNum);
     var hourlySalesTotal = Math.round(footTraffic * this.avgCookiePerCust);
@@ -131,19 +131,19 @@ var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
 //=====get the words on the page======
 makeTableHeader();
 
-seattleStats.hourlyTraffic(); //1st - fill in some info via method
+seattleStats.hourlyCookieSales(); //1st - fill in some info via method
 seattleStats.renderStoreInTable(); // 2nd render in table
 
-tokyoStats.hourlyTraffic();
+tokyoStats.hourlyCookieSales();
 tokyoStats.renderStoreInTable();
 
-dubaiStats.hourlyTraffic();
+dubaiStats.hourlyCookieSales();
 dubaiStats.renderStoreInTable();
 
-parisStats.hourlyTraffic();
+parisStats.hourlyCookieSales();
 parisStats.renderStoreInTable();
 
-limaStats.hourlyTraffic();
+limaStats.hourlyCookieSales();
 limaStats.renderStoreInTable();
 
 makeTableFooter();
