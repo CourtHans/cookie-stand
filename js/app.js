@@ -6,6 +6,7 @@
 
 //=========global variables============
 var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
+
 var allBranches = [];
 
 //=======random number generator=======
@@ -46,15 +47,19 @@ function makeTableFooter(){
 
   for (var i = 0; i < operatingHours.length; i++){
     var tableFooterTotals = document.createElement('td');
+    var allBranchHourlySales = 0;
     for (var j = 0; j < allBranches.length; j++){
-      tableFooterTotals.textContent = allBranches[j].dailyHourSales[i];
+      allBranchHourlySales += allBranches[j].dailyHourSales[i];
     }
+    tableFooterTotals.textContent = allBranchHourlySales;
     theTableFooter.appendChild(tableFooterTotals);
   }
   var tableFooterAllUpTotal = document.createElement('th');
+  var allUpTotal = 0;
   for (var jj = 0; jj < allBranches.length; jj++){
-    tableFooterAllUpTotal.textContent = allBranches[jj].dailyTotalSales;
+    allUpTotal += allBranches[jj].dailyTotalSales;
   }
+  tableFooterAllUpTotal.textContent = allUpTotal;
   theTableFooter.appendChild(tableFooterAllUpTotal);
 
   table.appendChild(theTableFooter);
@@ -88,7 +93,7 @@ function renderStoreInTable() {
 //=============New store constructor=============
 
 function Store(id, location, minNum, maxNum, avgCookiePerCust) {
-  this.id = id;
+  this.id = id; //may not need this, come back
   this.location = location + ' store';
   this.minNum = minNum;
   this.maxNum = maxNum;
