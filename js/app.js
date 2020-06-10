@@ -6,6 +6,7 @@
 
 //=========global variables============
 var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
+var allBranches = [];
 
 //=======random number generator=======
 
@@ -90,6 +91,7 @@ function Store(id, location, minNum, maxNum, avgCookiePerCust) {
   this.avgCookiePerCust = avgCookiePerCust;
   this.dailyHourSales = [];
   this.dailyTotalSales = 0;
+  allBranches.push(this);
 }
 //==========create hourlyCookieSales method=========
 
@@ -115,19 +117,9 @@ var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
 //=====get the words on the page======!
 makeTableHeader();
 
-seattleStats.hourlyCookieSales(); //1st - fill in some info via method
-seattleStats.renderStoreInTable(); // 2nd render in table
-
-tokyoStats.hourlyCookieSales();
-tokyoStats.renderStoreInTable();
-
-dubaiStats.hourlyCookieSales();
-dubaiStats.renderStoreInTable();
-
-parisStats.hourlyCookieSales();
-parisStats.renderStoreInTable();
-
-limaStats.hourlyCookieSales();
-limaStats.renderStoreInTable();
+for (var ii = 0; ii < allBranches.length; ii++) {
+  allBranches[ii].hourlyCookieSales();
+  allBranches[ii].renderStoreInTable();
+}
 
 makeTableFooter();
