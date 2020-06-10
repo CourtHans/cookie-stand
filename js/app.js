@@ -46,11 +46,15 @@ function makeTableFooter(){
 
   for (var i = 0; i < operatingHours.length; i++){
     var tableFooterTotals = document.createElement('td');
-    tableFooterTotals.textContent = seattleStats.dailyHourSales[i] + tokyoStats.dailyHourSales[i] + dubaiStats.dailyHourSales[i] + parisStats.dailyHourSales[i] + limaStats.dailyHourSales[i]; //is there a cleaner/more scalable way to do this?
+    for (var j = 0; j < allBranches.length; j++){
+      tableFooterTotals.textContent = allBranches[j].dailyHourSales[i];
+    }
     theTableFooter.appendChild(tableFooterTotals);
   }
   var tableFooterAllUpTotal = document.createElement('th');
-  tableFooterAllUpTotal.textContent = seattleStats.dailyTotalSales + tokyoStats.dailyTotalSales + dubaiStats.dailyTotalSales + parisStats.dailyTotalSales + limaStats.dailyTotalSales; //is there a cleaner/more scalable way to do this?
+  for (var jj = 0; jj < allBranches.length; jj++){
+    tableFooterAllUpTotal.textContent = allBranches[jj].dailyTotalSales;
+  }
   theTableFooter.appendChild(tableFooterAllUpTotal);
 
   table.appendChild(theTableFooter);
