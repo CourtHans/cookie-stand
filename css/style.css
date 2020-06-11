@@ -1,5 +1,12 @@
+* {
+  box-sizing: border-box;
+  /* border: solid rgb(117, 113, 113); */
+}
+
 body {
-  background-color: rgb(218, 187, 184);
+  background-color: rgb(221, 200, 198);
+  width: 98%;
+  margin: 0 auto;
 }
 
 header, footer {
@@ -8,20 +15,194 @@ header, footer {
   border-bottom: solid; color:rgb(19, 38, 19);
 }
 
-header {
-  text-align: center;
-  
+#left-logo {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
-header > h1, h3 {
+h1 {
+  font-size: 36pt;
+  margin-bottom: 0px;
+}
+#title {
+  margin-left: 500px;
   color: rgb(67, 27, 25); 
 }
 
-/* only centering while place-holding */
+
+#title h3 {
+  margin-left: 60px;
+  margin-top: 0px;
+  font-size: 18pt;
+  font-style: italic;
+}
+
 main {
+  margin-left: 10px;
+}
+
+h3 {
+  font-size: 24pt;
+}
+
+#intro h3 {
+  margin-bottom: 6px;
+}
+
+#intro p {
+  font-size: 14pt;
+  margin-top: 0px;
+ }
+
+.divider {
+  border-bottom: solid rgb(15, 15, 15);
+  border-width: medium;
+}
+
+.products ul {
+   overflow: hidden;
+   margin-left: 20px;
+   margin-right: auto;
+ }
+
+.products ul li{
+  float: left;
+  list-style-type: none;
+  margin-left: 20px;
   text-align: center;
 }
 
+.products img {
+  border: solid rgb(15, 15, 15);
+  border-width: thin;
+}
+
+.products p {
+  margin: 0px;
+}
+
+#contact ul {
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+#contact ul li {
+  float: left;
+  margin-left: 20px;
+}
+
+#contact li {
+  list-style-type: none;
+}
+
+#contact article {
+  width: 420px;
+  margin-top: 30px;
+}
+
+#contact img {
+  float: left;
+  height: 135px;
+  margin-right: 10px;
+  border: solid rgb(15, 15, 15);
+  border-width: thin;
+}
+
+#contact section {
+  width: 400px;
+}
+
+#contact p {
+  margin-top: 0px;
+}
+
+#contact h5 {
+  font-size: 18pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#contact p {
+  font-size: 14pt;
+}
+
+.about article {
+  height: 190px;
+  width: auto;
+}
+
+.about section {
+  width: 1000px;
+}
+
+.about img {
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+}
+
+.about p {
+  font-size: 14pt;
+}
+
+.about h4 {
+  font-size: 18pt;
+  font-style: italic;
+  margin: 10px;
+}
+
+#hyperlogo {
+  text-align: center;
+  height: 105px;
+  width: 186px;
+  float: left;
+}
+
+#hyperlogo img {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  height: 70px;
+}
+
+#hyperlogo img :hover {
+  transition: 360ms;
+  height: 100px;
+  width: 265px;
+}
+
+/* set footer box */
+footer {
+  margin: 0px auto;
+  height: 110px;
+}
+
+footer > nav > ul {
+  color: rgb(67, 27, 25); 
+  list-style-type: none;
+  font-size: 14pt;
+  margin-top: 5px;
+  margin-left: 150px;
+  width: 900px;
+  float: left;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+#headquarters p {
+  margin: 10px;
+}
+
+#copy {
+  text-align: right;
+}
+
+/* formatting for sales.html */
 table {
   border: solid rgb(15, 15, 15);
   border-collapse: collapse;
@@ -31,22 +212,4 @@ table {
 th, td {
   border: solid rgb(15, 15, 15);
   padding: 5px;
-}
-
-/* set footer box */
-footer {
-  margin: 0px auto;
-  height: 40px;
-}
-
-footer > nav > ul {
-margin-top: 10px;
-}
-
-/* center navigation links within footer */
-footer > nav > ul > li {
-  color: rgb(67, 27, 25); 
-  display: inline-block;
-  width: 600px;
-  text-align: center; 
 }

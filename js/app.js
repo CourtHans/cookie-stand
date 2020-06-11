@@ -7,6 +7,8 @@
 //=========global variables============
 var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
 
+var allBranches = [];
+
 //=======random number generator=======
 
 function generateRandomNumber(min, max) {
@@ -45,11 +47,19 @@ function makeTableFooter(){
 
   for (var i = 0; i < operatingHours.length; i++){
     var tableFooterTotals = document.createElement('td');
-    tableFooterTotals.textContent = seattleStats.dailyHourSales[i] + tokyoStats.dailyHourSales[i] + dubaiStats.dailyHourSales[i] + parisStats.dailyHourSales[i] + limaStats.dailyHourSales[i]; //is there a cleaner/more scalable way to do this?
+    var allBranchHourlySales = 0;
+    for (var j = 0; j < allBranches.length; j++){
+      allBranchHourlySales += allBranches[j].dailyHourSales[i];
+    }
+    tableFooterTotals.textContent = allBranchHourlySales;
     theTableFooter.appendChild(tableFooterTotals);
   }
   var tableFooterAllUpTotal = document.createElement('th');
-  tableFooterAllUpTotal.textContent = seattleStats.dailyTotalSales + tokyoStats.dailyTotalSales + dubaiStats.dailyTotalSales + parisStats.dailyTotalSales + limaStats.dailyTotalSales; //is there a cleaner/more scalable way to do this?
+  var allUpTotal = 0;
+  for (var jj = 0; jj < allBranches.length; jj++){
+    allUpTotal += allBranches[jj].dailyTotalSales;
+  }
+  tableFooterAllUpTotal.textContent = allUpTotal;
   theTableFooter.appendChild(tableFooterAllUpTotal);
 
   table.appendChild(theTableFooter);
@@ -83,13 +93,14 @@ function renderStoreInTable() {
 //=============New store constructor=============
 
 function Store(id, location, minNum, maxNum, avgCookiePerCust) {
-  this.id = id;
+  this.id = id; //may not need this, leaving for now
   this.location = location + ' store';
   this.minNum = minNum;
   this.maxNum = maxNum;
   this.avgCookiePerCust = avgCookiePerCust;
   this.dailyHourSales = [];
   this.dailyTotalSales = 0;
+  allBranches.push(this);
 }
 //==========create hourlyCookieSales method=========
 
@@ -106,28 +117,18 @@ Store.prototype.hourlyCookieSales = function () {
 Store.prototype.renderStoreInTable = renderStoreInTable;
 
 //===========Creating stores from constructor==============
-var seattleStats = new Store('seattle-table', 'Seattle', 23, 64, 6.3);
-var tokyoStats = new Store('tokyo-table', 'Tokyo', 3, 24, 1.2);
-var dubaiStats = new Store('dubai-table', 'Dubai', 11, 38, 3.7);
-var parisStats = new Store('paris-table', 'Paris', 20, 38, 2.3);
-var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
+new Store('seattle-object', 'Seattle', 23, 64, 6.3);
+new Store('tokyo-object', 'Tokyo', 3, 24, 1.2);
+new Store('dubai-object', 'Dubai', 11, 38, 3.7);
+new Store('paris-object', 'Paris', 20, 38, 2.3);
+new Store('lima-object', 'Lima', 2, 16, 4.6);
 
-//=====get the words on the page======!
+//=====get the words on the page=======!
 makeTableHeader();
 
-seattleStats.hourlyCookieSales(); //1st - fill in some info via method
-seattleStats.renderStoreInTable(); // 2nd render in table
-
-tokyoStats.hourlyCookieSales();
-tokyoStats.renderStoreInTable();
-
-dubaiStats.hourlyCookieSales();
-dubaiStats.renderStoreInTable();
-
-parisStats.hourlyCookieSales();
-parisStats.renderStoreInTable();
-
-limaStats.hourlyCookieSales();
-limaStats.renderStoreInTable();
+for (var ii = 0; ii < allBranches.length; ii++) {
+  allBranches[ii].hourlyCookieSales();
+  allBranches[ii].renderStoreInTable();
+}
 
 makeTableFooter();
