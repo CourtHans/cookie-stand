@@ -29,7 +29,13 @@ function captureNewStoreInfo (eventCapture){
   var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
 
   newStoreCapture.hourlyCookieSales();
+  //erase footer
+  document.getElementById('store-table').deleteRow(-1);
   newStoreCapture.renderStoreInTable();
+  //add footer back in
+  makeTableFooter();
+  //helpful hints provided by https://www.w3schools.com/jsref/met_table_deleterow.asp
+
   //i will also want it to then clear the fields for better user experience?
 }
 
@@ -99,9 +105,7 @@ function makeTableFooter(){
 function renderStoreInTable() {
 
   var table = document.getElementById('store-table');
-
   var tableRow = document.createElement('tr');
-
   var tableCell = document.createElement('th');
   tableCell.textContent = this.location;
   tableRow.appendChild(tableCell);
