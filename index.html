@@ -12,7 +12,7 @@
 
 <body>
   <header>
-    <img class="logo" src="images/salmon-medium.png" alt="salmon logo">
+    <img id="left-logo" src="images/salmon-medium.png" alt="salmon logo">
     <section id="title">
       <h1>Pat's Scrumptious Salmon Cookies</h1>
       <h3 class="heading">Delicious salmon cookies, just the way Grandma made 'em!</h3>
@@ -38,8 +38,8 @@
 
       <section class="products">
         <h3 class="divider">Our fine products</h3>
-        <div id="gallery">
-          <ul id="photos">
+        <div>
+          <ul>
             <li>
               <img src="images/cutter.jpeg" alt="cookie cutter" title="Our unique salmon cookie cutter">
               <p class="caption">salmon cookie cutter</p>
@@ -72,7 +72,7 @@
               <p>1234 Pike Street <br>
                 Seattle, WA 12345 <br>
                 +01 (206) 867-5309 </p>
-                <p>Open daily: 6am-8pm</p>
+              <p>Open daily: 6am-8pm</p>
             </section>
 
           </article>
@@ -85,7 +85,7 @@
               <h5>Tokyo</h5>
               <p>12 Cherry Blossom Ave <br>
                 Tokyo, Japan 123-4567 <br>
-              +81 80-8675-3090</p>
+                +81 80-8675-3090</p>
               <p>Open daily: 6am-8pm</p>
             </section>
           </article>
@@ -97,7 +97,7 @@
               <h5>Dubai</h5>
               <p>5678 Desert Blvd <br>
                 Dubai, UAE <br>
-              +971 04-8675309</p>
+                +971 04-8675309</p>
               <p>Open daily: 6am-8pm</p>
             </section>
           </article>
@@ -108,8 +108,8 @@
             <section>
               <h5>Paris</h5>
               <p>345 Blvd Saint-Germain <br>
-                 33500 Paris, France <br>
-              +33 86 75 30 98 67</p>
+                33500 Paris, France <br>
+                +33 86 75 30 98 67</p>
               <p>Open daily: 6am-8pm</p>
             </section>
           </article>
@@ -121,7 +121,7 @@
               <h5>Lima</h5>
               <p>Av. Larco 13 Miraflores <br>
                 15074 Lima, Peru <br>
-              +51 419 8675-3098</p>
+                +51 419 8675-3098</p>
               <p>Open daily: 6am-8pm</p>
             </section>
           </article>
@@ -132,7 +132,7 @@
             <section>
               <h5>New locations!</h5>
               <p>We're opening all across the globe!</p>
-              <p>Check back in for more details</p>
+              <p>Check back in for more details...</p>
             </section>
           </article>
         </li>
@@ -140,17 +140,18 @@
 
     </div>
 
-    <div>
+    <div class="about">
       <h3 class="divider">About Us</h3>
 
       <article>
         <img src="images/family-small.jpg" alt="family picture" title="Pat and his family">
-        <section id="about">
+        <section>
           <h4>Our story</h4>
           <p>When she was just a girl, Pat Fishscale always looked forward to visits to her grandmother's house so she
             could enjoy Grandma Darla's legendary salmon cookies. As Pat grew older, her grandmother taught her all the
             secrets to this melt-in-your-mouth treat. In 2019, Pat and her partner Martin decided to launch Pat's Salmon
-            Cookies. Their kids Nemo and Dory love helping run the family business!</p>
+            Cookies. Their kids Nemo and Dory are learning the tricks of the salmon cookie trade, and sure love helping
+            run the family business!</p>
         </section>
       </article>
 
@@ -160,34 +161,26 @@
 
   <footer>
     <nav>
+      <section id="hyperlogo">
+        <a href="sales.html"><img src="images/chinook-small.jpg" alt="chinook" title="Secret Sales Data access"></a>
+        <a class="caption" href="sales.html">Secret Sales Page</a>
+      </section>
 
       <ul>
-        <li id="hyperlogo">
-          <article>
-            <a href="sales.html"><img class="logo" src="images/chinook-small.jpg" alt="chinook"
-                title="Secret Sales Data access"></a>
-            <p class="caption"><a href="sales.html">Secret Sales Page</a></p>
-          </article>
-        </li>
         <li>
-          <article id="info">
-            <p>Contact us!</p>
+          <section id="headquarters">
+            <p class="bold">Contact us!</p>
             <ul>
-              <li><a href="mailto:yumsalmon@gmail.com" target="_blank">yumsalmon@gmail.com</a></li>
+              <li><a href="mailto:Salmon-yum@gmail.com" target="_blank">Salmon-yum@gmail.com</a></li>
               <li>1-888-867-5309</li>
             </ul>
-          </article>
+          </section>
         </li>
-      </ul>
-      </li>
-
-
-      <li id="copy">&copy; 2020 Court Hans</li>
-
       </ul>
 
     </nav>
   </footer>
+  <p id="copy">&copy; 2020 Court Hans</p>
 </body>
 
 </html>

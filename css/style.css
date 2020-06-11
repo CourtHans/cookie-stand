@@ -15,7 +15,7 @@ header, footer {
   border-bottom: solid; color:rgb(19, 38, 19);
 }
 
-.logo {
+#left-logo {
   float: left;
   margin-top: 10px;
   margin-left: 10px;
@@ -63,19 +63,18 @@ h3 {
 .products ul {
    overflow: hidden;
    margin-left: 20px;
+   margin-right: auto;
  }
 
 .products ul li{
   float: left;
   list-style-type: none;
   margin-left: 20px;
-  border: solid rgb(15, 15, 15);
-  border-width: thin;
   text-align: center;
 }
 
 .products img {
-  border-bottom: solid rgb(15, 15, 15);
+  border: solid rgb(15, 15, 15);
   border-width: thin;
 }
 
@@ -100,7 +99,6 @@ h3 {
 #contact article {
   width: 420px;
   margin-top: 30px;
-  /* border: solid purple; */
 }
 
 #contact img {
@@ -112,14 +110,12 @@ h3 {
 }
 
 #contact section {
-  width: 350px;
-  margin: 0px;
+  width: 400px;
 }
 
 #contact p {
   margin-top: 0px;
 }
-
 
 #contact h5 {
   font-size: 18pt;
@@ -131,27 +127,80 @@ h3 {
   font-size: 14pt;
 }
 
+.about article {
+  height: 190px;
+  width: auto;
+}
 
+.about section {
+  width: 1000px;
+}
+
+.about img {
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+}
+
+.about p {
+  font-size: 14pt;
+}
+
+.about h4 {
+  font-size: 18pt;
+  font-style: italic;
+  margin: 10px;
+}
+
+#hyperlogo {
+  text-align: center;
+  height: 105px;
+  width: 186px;
+  float: left;
+}
+
+#hyperlogo img {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  height: 70px;
+}
+
+#hyperlogo img :hover {
+  transition: 360ms;
+  height: 100px;
+  width: 265px;
+}
 
 /* set footer box */
 footer {
   margin: 0px auto;
-  height: 40px;
+  height: 110px;
 }
 
 footer > nav > ul {
-  margin-top: 10px;
-}
-
-/* center navigation links within footer */
-footer > nav > ul > li {
   color: rgb(67, 27, 25); 
-  display: inline-block;
-  width: 600px;
-  text-align: center; 
+  list-style-type: none;
+  font-size: 14pt;
+  margin-top: 5px;
+  margin-left: 150px;
+  width: 900px;
+  float: left;
 }
 
 
+.bold {
+  font-weight: bold;
+}
+
+#headquarters p {
+  margin: 10px;
+}
+
+#copy {
+  text-align: right;
+}
 
 /* formatting for sales.html */
 table {
