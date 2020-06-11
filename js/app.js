@@ -93,7 +93,7 @@ function renderStoreInTable() {
 //=============New store constructor=============
 
 function Store(id, location, minNum, maxNum, avgCookiePerCust) {
-  this.id = id; //may not need this, come back
+  this.id = id; //may not need this, leaving for now
   this.location = location + ' store';
   this.minNum = minNum;
   this.maxNum = maxNum;
@@ -117,13 +117,13 @@ Store.prototype.hourlyCookieSales = function () {
 Store.prototype.renderStoreInTable = renderStoreInTable;
 
 //===========Creating stores from constructor==============
-var seattleStats = new Store('seattle-table', 'Seattle', 23, 64, 6.3);
-var tokyoStats = new Store('tokyo-table', 'Tokyo', 3, 24, 1.2);
-var dubaiStats = new Store('dubai-table', 'Dubai', 11, 38, 3.7);
-var parisStats = new Store('paris-table', 'Paris', 20, 38, 2.3);
-var limaStats = new Store('lima-table', 'Lima', 2, 16, 4.6);
+new Store('seattle-object', 'Seattle', 23, 64, 6.3);
+new Store('tokyo-object', 'Tokyo', 3, 24, 1.2);
+new Store('dubai-object', 'Dubai', 11, 38, 3.7);
+new Store('paris-object', 'Paris', 20, 38, 2.3);
+new Store('lima-object', 'Lima', 2, 16, 4.6);
 
-//=====get the words on the page======!
+//=====get the words on the page=======!
 makeTableHeader();
 
 for (var ii = 0; ii < allBranches.length; ii++) {
