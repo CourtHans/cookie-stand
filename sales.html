@@ -15,31 +15,33 @@
   <p id="homeButton">Take me <a href="index.html">home</a></p>
 
   <div>
-    <legend>Store Update Form
-    <form id = "storeUpdateForm">
+    <form id="storeUpdateForm">
+      <fieldset>
+        <legend>Store Update Form</legend>
 
-      <label class="question" for = "locationInput">Location name</label>
-      <input name ="locationInput" type="text">
+        <label class="question" for="locationInput">Location name</label>
+        <input name="locationInput" type="text">
 
-      <label class="question" for = "minNumInput">Min # of customers:</label>
-      <input name ="minNumInput" type="number">
+        <label class="question" for="minNumInput">Min # of customers:</label>
+        <input name="minNumInput" type="number">
 
-      <label class="question" for = "maxNumInput">Max # of customers:</label>
-      <input name ="maxNumInput" type="number">
+        <label class="question" for="maxNumInput">Max # of customers:</label>
+        <input name="maxNumInput" type="number">
 
-      <label class="question" for = "avgCookiePerCustomerInput">Avg. # of cookies purchased/customer</label>
-      <input name ="avgCookiePerCustomerInput" type="number">
+        <label class="question" for="avgCookiePerCustInput">Avg. # of cookies purchased/customer</label>
+        <input name="avgCookiePerCustInput" type="number">
 
-      <button>Submit</button>
-
+        <button>Submit</button>
+      </fieldset>
     </form>
-  </legend>
+
   </div>
+
   <div>
     <table id="store-table"></table>
   </div>
 
-  
+
   <script src="js/app.js"></script>
 
 </body>

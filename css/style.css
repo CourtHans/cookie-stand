@@ -211,7 +211,7 @@ footer > nav > ul {
 
 /* formatting for storeUpdateForm */
 
-legend{
+fieldset{
   font-size: 14pt;
   border: 1px solid #444444;
   border-radius: 10px;
@@ -219,8 +219,17 @@ legend{
   padding: 20px
 }
 
+legend{
+  font-size: 18pt;
+}
+
+label{
+  font-weight: bolder;
+}
+
 input{
   display: block;
+  height: 30px;
 }
 
 button {

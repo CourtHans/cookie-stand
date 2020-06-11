@@ -1,7 +1,36 @@
 'use strict';
 
-// Plan. Then do. Replace all object literals with a single constructor function that, when called with the ‘new’ keyword, it creates a new instance.
-// Replace the lists data for each store and build a single table of data instead.
+// Form is built in sales.html
+// Create an event handler that creates a new instance of a cookie stand that appends to the table upon form submission
+//REMINDER:
+// 1.   Target
+// 2.   Listen
+// 2.5  Type of event
+// 2.5b Callback function to handle it (later)
+//Forms MUST HAVE a .preventDefault handler to stop JS from clearing page
+
+//event should trigger new Store(INPUT SHOULD GO HERE);
+
+//========form info capture===========
+
+var newStoreInput = document.getElementById('storeUpdateForm');
+newStoreInput.addEventListener('submit', captureNewStoreInfo);
+
+function captureNewStoreInfo (eventCapture){
+  eventCapture.preventDefault();
+
+  var captureLocation = eventCapture.target.locationInput.value;
+  var captureMinNum = eventCapture.target.minNumInput.value;
+  var captureMaxNum = eventCapture.target.maxNumInput.value;
+  var captureAvgCookiePerCust = eventCapture.target.avgCookiePerCustInput.value;
+
+  console.log(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
+
+  var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
+
+  newStoreCapture.renderStoreInTable();
+}
+
 
 
 //=========global variables============
