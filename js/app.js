@@ -28,10 +28,10 @@ function captureNewStoreInfo (eventCapture){
 
   var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
 
+  newStoreCapture.hourlyCookieSales();
   newStoreCapture.renderStoreInTable();
+  //i will also want it to then clear the fields for better user experience?
 }
-
-
 
 //=========global variables============
 var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
@@ -97,32 +97,31 @@ function makeTableFooter(){
 //===create function to render store info into a table===
 
 function renderStoreInTable() {
-  //creating a target
-  var table = document.getElementById('store-table'); //table becomes grandparent!
 
-  //making a new child element in the parent
+  var table = document.getElementById('store-table');
+
   var tableRow = document.createElement('tr');
 
-  var tableCell = document.createElement('th'); //new (grand) child element
+  var tableCell = document.createElement('th');
   tableCell.textContent = this.location;
-  tableRow.appendChild(tableCell); //append back to its parent
+  tableRow.appendChild(tableCell);
 
   for (var i = 0; i < this.dailyHourSales.length; i++) {
 
     tableCell = document.createElement('td');
     tableCell.textContent = this.dailyHourSales[i];
-    tableRow.appendChild(tableCell); //append back to its parent
+    tableRow.appendChild(tableCell);
   }
   var tableCellTotal = document.createElement('th');
   tableCellTotal.textContent = this.dailyTotalSales;
   tableRow.appendChild(tableCellTotal);
-  table.appendChild(tableRow); //append back to its parent
+  table.appendChild(tableRow);
 }
 
 //=============New store constructor=============
 
 function Store(location, minNum, maxNum, avgCookiePerCust) {
-  this.location = location + ' store';
+  this.location = location;
   this.minNum = minNum;
   this.maxNum = maxNum;
   this.avgCookiePerCust = avgCookiePerCust;
@@ -154,6 +153,7 @@ new Store('Lima', 2, 16, 4.6);
 //=====get the words on the page=======!
 makeTableHeader();
 
+//trigger this to rerun if new store entered?
 for (var ii = 0; ii < allBranches.length; ii++) {
   allBranches[ii].hourlyCookieSales();
   allBranches[ii].renderStoreInTable();
