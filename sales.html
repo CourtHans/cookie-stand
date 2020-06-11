@@ -12,25 +12,28 @@
 </head>
 
 <body>
-  <p>Take me <a href="index.html">home</a></p>
-  
+  <p id="homeButton">Take me <a href="index.html">home</a></p>
+
   <div>
-    <legend>Store Update Form</legend>
+    <legend>Store Update Form
     <form id = "storeUpdateForm">
 
-      <label for = "locationInput">Location name</label>
+      <label class="question" for = "locationInput">Location name</label>
       <input name ="locationInput" type="text">
 
-      <label for = "minNumInput">Min # of customers:</label>
+      <label class="question" for = "minNumInput">Min # of customers:</label>
       <input name ="minNumInput" type="number">
 
-      <label for = "maxNumInput">Max # of customers:</label>
+      <label class="question" for = "maxNumInput">Max # of customers:</label>
       <input name ="maxNumInput" type="number">
 
-      <label for = "avgCookiePerCustomerInput">Avg. # of cookies purchased/customer</label>
+      <label class="question" for = "avgCookiePerCustomerInput">Avg. # of cookies purchased/customer</label>
       <input name ="avgCookiePerCustomerInput" type="number">
 
+      <button>Submit</button>
+
     </form>
+  </legend>
   </div>
   <div>
     <table id="store-table"></table>
