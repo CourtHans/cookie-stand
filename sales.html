@@ -17,19 +17,20 @@
   <div>
     <form id="storeUpdateForm">
       <fieldset>
-        <legend>Store Update Form</legend>
+        <legend>Store update form</legend>
 
-        <label class="question" for="inputLocation">Location name</label>
-        <input name="inputLocation" type="text">
+        <label class="question" for="inputLocation">Location name:</label>
+        <input name="inputLocation" type="text" required>
 
         <label class="question" for="inputMinNum">Min # of customers:</label>
-        <input name="inputMinNum" type="number">
+        <input name="inputMinNum" type="number" required>
 
         <label class="question" for="inputMaxNum">Max # of customers:</label>
-        <input name="inputMaxNum" type="number">
+        <input name="inputMaxNum" type="number" required>
 
         <label class="question" for="inputAvgCookiePerCust">Avg. # of cookies purchased/customer</label>
-        <input name="inputAvgCookiePerCust" type="number">
+        <input name="inputAvgCookiePerCust" type="number" step="0.01" min="0" required>
+        <!--info on how to get form to accept decimal numbers from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number -->
 
         <button>Submit</button>
       </fieldset>

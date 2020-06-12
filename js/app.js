@@ -12,31 +12,28 @@
 //event should trigger new Store(INPUT SHOULD GO HERE);
 
 //========form info capture===========
+//helpful hints provided by https://www.w3schools.com/jsref/met_table_deleterow.asp, as well as diff b/w parseInt and parseFloat and the .reset option and discussion w Nich to isolate the issue of user input strings (even though form type is "number")
 
 var newStoreInput = document.getElementById('storeUpdateForm');
 newStoreInput.addEventListener('submit', captureNewStoreInfo);
 
 function captureNewStoreInfo (eventCapture){
   eventCapture.preventDefault();
-  //hat tip Nich and https://www.w3schools.com/jsref/jsref_parseint.asp for info on parsing strings (user input) to number
   var captureLocation = eventCapture.target.inputLocation.value;
   var captureMinNum = parseInt(eventCapture.target.inputMinNum.value);
   var captureMaxNum = parseInt(eventCapture.target.inputMaxNum.value);
-  var captureAvgCookiePerCust = parseInt(eventCapture.target.inputAvgCookiePerCust.value);
-
-  console.log(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
+  var captureAvgCookiePerCust = parseFloat(eventCapture.target.inputAvgCookiePerCust.value);
 
   var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
 
-  newStoreCapture.hourlyCookieSales(); //not working
+  newStoreCapture.hourlyCookieSales();
   //erase footer
   document.getElementById('store-table').deleteRow(-1);
   newStoreCapture.renderStoreInTable();
   //add footer back in
   makeTableFooter();
-  //helpful hints provided by https://www.w3schools.com/jsref/met_table_deleterow.asp
-
-  //i will also want it to then clear the fields for better user experience?
+  //clear the form
+  // document.getElementById('storeUpdateForm').reset();
 }
 
 //=========global variables============
