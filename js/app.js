@@ -18,17 +18,17 @@ newStoreInput.addEventListener('submit', captureNewStoreInfo);
 
 function captureNewStoreInfo (eventCapture){
   eventCapture.preventDefault();
-
-  var captureLocation = eventCapture.target.locationInput.value;
-  var captureMinNum = eventCapture.target.minNumInput.value;
-  var captureMaxNum = eventCapture.target.maxNumInput.value;
-  var captureAvgCookiePerCust = eventCapture.target.avgCookiePerCustInput.value;
+  //hat tip Nich and https://www.w3schools.com/jsref/jsref_parseint.asp for info on parsing strings (user input) to number
+  var captureLocation = eventCapture.target.inputLocation.value;
+  var captureMinNum = parseInt(eventCapture.target.inputMinNum.value);
+  var captureMaxNum = parseInt(eventCapture.target.inputMaxNum.value);
+  var captureAvgCookiePerCust = parseInt(eventCapture.target.inputAvgCookiePerCust.value);
 
   console.log(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
 
   var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
 
-  newStoreCapture.hourlyCookieSales();
+  newStoreCapture.hourlyCookieSales(); //not working
   //erase footer
   document.getElementById('store-table').deleteRow(-1);
   newStoreCapture.renderStoreInTable();
@@ -154,7 +154,7 @@ new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 
-//=====get the words on the page=======!
+//=====get the words on the page=======!!
 makeTableHeader();
 
 //trigger this to rerun if new store entered?
