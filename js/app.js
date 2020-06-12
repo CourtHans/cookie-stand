@@ -1,8 +1,40 @@
 'use strict';
 
-// Plan. Then do. Replace all object literals with a single constructor function that, when called with the ‘new’ keyword, it creates a new instance.
-// Replace the lists data for each store and build a single table of data instead.
+// Form is built in sales.html
+// Create an event handler that creates a new instance of a cookie stand that appends to the table upon form submission
+//REMINDER:
+// 1.   Target
+// 2.   Listen
+// 2.5  Type of event
+// 2.5b Callback function to handle it (later)
+//Forms MUST HAVE a .preventDefault handler to stop JS from clearing page
 
+//event should trigger new Store(INPUT SHOULD GO HERE);
+
+//========form info capture===========
+//helpful hints provided by https://www.w3schools.com/jsref/met_table_deleterow.asp, as well as diff b/w parseInt and parseFloat and the .reset option and discussion w Nich to isolate the issue of user input strings (even though form type is "number")
+
+var newStoreInput = document.getElementById('storeUpdateForm');
+newStoreInput.addEventListener('submit', captureNewStoreInfo);
+
+function captureNewStoreInfo (eventCapture){
+  eventCapture.preventDefault();
+  var captureLocation = eventCapture.target.inputLocation.value;
+  var captureMinNum = parseInt(eventCapture.target.inputMinNum.value);
+  var captureMaxNum = parseInt(eventCapture.target.inputMaxNum.value);
+  var captureAvgCookiePerCust = parseFloat(eventCapture.target.inputAvgCookiePerCust.value);
+
+  var newStoreCapture = new Store(captureLocation, captureMinNum, captureMaxNum, captureAvgCookiePerCust);
+
+  newStoreCapture.hourlyCookieSales();
+  //erase footer
+  document.getElementById('store-table').deleteRow(-1);
+  newStoreCapture.renderStoreInTable();
+  //add footer back in
+  makeTableFooter();
+  //clear the form
+  document.getElementById('storeUpdateForm').reset();
+}
 
 //=========global variables============
 var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
@@ -68,33 +100,29 @@ function makeTableFooter(){
 //===create function to render store info into a table===
 
 function renderStoreInTable() {
-  //creating a target
-  var table = document.getElementById('store-table'); //table becomes grandparent!
 
-  //making a new child element in the parent
+  var table = document.getElementById('store-table');
   var tableRow = document.createElement('tr');
-
-  var tableCell = document.createElement('th'); //new (grand) child element
+  var tableCell = document.createElement('th');
   tableCell.textContent = this.location;
-  tableRow.appendChild(tableCell); //append back to its parent
+  tableRow.appendChild(tableCell);
 
   for (var i = 0; i < this.dailyHourSales.length; i++) {
 
     tableCell = document.createElement('td');
     tableCell.textContent = this.dailyHourSales[i];
-    tableRow.appendChild(tableCell); //append back to its parent
+    tableRow.appendChild(tableCell);
   }
   var tableCellTotal = document.createElement('th');
   tableCellTotal.textContent = this.dailyTotalSales;
   tableRow.appendChild(tableCellTotal);
-  table.appendChild(tableRow); //append back to its parent
+  table.appendChild(tableRow);
 }
 
 //=============New store constructor=============
 
-function Store(id, location, minNum, maxNum, avgCookiePerCust) {
-  this.id = id; //may not need this, leaving for now
-  this.location = location + ' store';
+function Store(location, minNum, maxNum, avgCookiePerCust) {
+  this.location = location;
   this.minNum = minNum;
   this.maxNum = maxNum;
   this.avgCookiePerCust = avgCookiePerCust;
@@ -117,15 +145,16 @@ Store.prototype.hourlyCookieSales = function () {
 Store.prototype.renderStoreInTable = renderStoreInTable;
 
 //===========Creating stores from constructor==============
-new Store('seattle-object', 'Seattle', 23, 64, 6.3);
-new Store('tokyo-object', 'Tokyo', 3, 24, 1.2);
-new Store('dubai-object', 'Dubai', 11, 38, 3.7);
-new Store('paris-object', 'Paris', 20, 38, 2.3);
-new Store('lima-object', 'Lima', 2, 16, 4.6);
+new Store('Seattle', 23, 64, 6.3);
+new Store('Tokyo', 3, 24, 1.2);
+new Store('Dubai', 11, 38, 3.7);
+new Store('Paris', 20, 38, 2.3);
+new Store('Lima', 2, 16, 4.6);
 
-//=====get the words on the page=======!
+//=====get the words on the page=======!!
 makeTableHeader();
 
+//trigger this to rerun if new store entered?
 for (var ii = 0; ii < allBranches.length; ii++) {
   allBranches[ii].hourlyCookieSales();
   allBranches[ii].renderStoreInTable();

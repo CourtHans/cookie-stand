@@ -61,9 +61,9 @@ h3 {
 }
 
 .products ul {
-   overflow: hidden;
-   margin-left: 20px;
-   margin-right: auto;
+  width: 100%;
+  overflow: hidden;
+  margin-left: 20px;
  }
 
 .products ul li{
@@ -76,10 +76,18 @@ h3 {
 .products img {
   border: solid rgb(15, 15, 15);
   border-width: thin;
+  margin: 10px;
+  filter: grayscale(10%);
+  transition: transform .5s, filter 0.5s ease-in-out;
+}
+
+.products img:hover{
+  filter: grayscale(0);
+  transform: scale(1.1);
 }
 
 .products p {
-  margin: 0px;
+  margin-top: 0px;
 }
 
 #contact ul {
@@ -89,7 +97,7 @@ h3 {
 
 #contact ul li {
   float: left;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 #contact li {
@@ -127,13 +135,13 @@ h3 {
   font-size: 14pt;
 }
 
-.about article {
+.about > article {
   height: 190px;
   width: auto;
 }
 
 .about section {
-  width: 1000px;
+  width: 1200px;
 }
 
 .about img {
@@ -178,7 +186,9 @@ footer {
   margin: 0px auto;
   height: 110px;
 }
-
+footer > nav {
+  /* display: inline-block; */
+}
 footer > nav > ul {
   color: rgb(67, 27, 25); 
   list-style-type: none;
@@ -189,7 +199,6 @@ footer > nav > ul {
   float: left;
 }
 
-
 .bold {
   font-weight: bold;
 }
@@ -198,11 +207,72 @@ footer > nav > ul {
   margin: 10px;
 }
 
+#headquarters li {
+  list-style-type: disc;
+}
+
 #copy {
   text-align: right;
 }
-
 /* formatting for sales.html */
+
+#homeButton {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+/* formatting for storeUpdateForm */
+
+form {
+  width: 960px;
+  margin-left: 20px;
+}
+
+fieldset{
+  font-size: 14pt;
+  border: 1px solid #444444;
+  border-radius: 10px;
+  width: 400px;
+  padding: 20px
+}
+
+legend{
+  font-size: 18pt;
+}
+
+label{
+  font-weight: bolder;
+}
+
+input{
+  display: block;
+  height: 30px;
+}
+
+input:valid {
+  background: rgb(240, 240, 240);
+  border: 1px solid rgb(51, 6, 23);
+  border-radius: 5px;
+}
+
+input:invalid:required {
+  background-color: rgb(184, 179, 179);
+  border: 2px dotted rgb(51, 6, 23);
+  border-radius: 5px;
+}
+
+button {
+  height: 40px;
+  width: 80px;
+  margin-top: 15px;
+  background-color: darkslategrey;
+  color: rgb(240, 240, 240);
+  border-radius: 20px;
+}
+
+
+/* formatting for table */
+
 table {
   border: solid rgb(15, 15, 15);
   border-collapse: collapse;
