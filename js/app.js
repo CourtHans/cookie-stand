@@ -33,7 +33,7 @@ function captureNewStoreInfo (eventCapture){
   //add footer back in
   makeTableFooter();
   //clear the form
-  // document.getElementById('storeUpdateForm').reset();
+  document.getElementById('storeUpdateForm').reset();
 }
 
 //=========global variables============
