@@ -27,7 +27,7 @@ h1 {
   font-family: 'Shadows Into Light', cursive;
 }
 #title {
-  margin-left: 500px;
+  margin-left: 200px;
   color: rgb(67, 27, 25); 
   text-align: center;
 }
@@ -194,26 +194,27 @@ footer {
   margin: 0px auto;
   height: 110px;
 }
-footer > nav {
-  /* display: inline-block; */
-}
 
-footer > nav > section{
-  float: left;
-}
 footer > nav > ul {
-  float: left;
+  float: right;
   color: rgb(67, 27, 25); 
   list-style-type: none;
   font-size: 14pt;
-  margin-top: 5px;
-  margin-left: 150px;
+  /* margin-top: 5px; */
+  margin-left: 80px;
   width: 900px;
   float: left;
 }
-/* check here */
+
+#headquarters {
+  float: left;
+  margin-top: 0px;
+}
+
 nav > ul > li {
   display: inline;
+  margin-right: 80px;
+  float: right;
 }
 
 .bold {
