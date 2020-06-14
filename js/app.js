@@ -1,16 +1,5 @@
 'use strict';
 
-// Form is built in sales.html
-// Create an event handler that creates a new instance of a cookie stand that appends to the table upon form submission
-//REMINDER:
-// 1.   Target
-// 2.   Listen
-// 2.5  Type of event
-// 2.5b Callback function to handle it (later)
-//Forms MUST HAVE a .preventDefault handler to stop JS from clearing page
-
-//event should trigger new Store(INPUT SHOULD GO HERE);
-
 //========form info capture===========
 //helpful hints provided by https://www.w3schools.com/jsref/met_table_deleterow.asp, as well as diff b/w parseInt and parseFloat and the .reset option and discussion w Nich to isolate the issue of user input strings (even though form type is "number")
 
@@ -37,7 +26,7 @@ function captureNewStoreInfo (eventCapture){
 }
 
 //=========global variables============
-var operatingHours = ['6:00 am', '7:00 am', '8:00 am', '9:00am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
+var operatingHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var allBranches = [];
 
