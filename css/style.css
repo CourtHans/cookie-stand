@@ -24,26 +24,37 @@ header, footer {
 h1 {
   font-size: 36pt;
   margin-bottom: 0px;
+  font-family: 'Shadows Into Light', cursive;
 }
 #title {
   margin-left: 500px;
   color: rgb(67, 27, 25); 
+  text-align: center;
 }
 
 
 #title h3 {
-  margin-left: 60px;
+  margin-left: 40px;
   margin-top: 0px;
   font-size: 18pt;
   font-style: italic;
+  color: rgb(67, 27, 25);
 }
 
 main {
   margin-left: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(21, 43, 21);
 }
 
 h3 {
   font-size: 24pt;
+  font-family: 'Shadows Into Light', cursive;
+  color: rgb(67, 27, 25);
+}
+
+h5 {
+  text-decoration: underline;
 }
 
 #intro h3 {
@@ -149,6 +160,9 @@ h3 {
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 0px;
+  border: solid rgb(15, 15, 15);
+  border-width: thin;
+  border-radius: 10px;
 }
 
 .about p {
@@ -157,7 +171,6 @@ h3 {
 
 .about h4 {
   font-size: 18pt;
-  font-style: italic;
   margin: 10px;
 }
 
@@ -173,12 +186,7 @@ h3 {
   margin-bottom: 0px;
   margin-left: 10px;
   height: 70px;
-}
-
-#hyperlogo img :hover {
-  transition: 360ms;
-  height: 100px;
-  width: 265px;
+  border-radius: 50%;
 }
 
 /* set footer box */
@@ -189,7 +197,12 @@ footer {
 footer > nav {
   /* display: inline-block; */
 }
+
+footer > nav > section{
+  float: left;
+}
 footer > nav > ul {
+  float: left;
   color: rgb(67, 27, 25); 
   list-style-type: none;
   font-size: 14pt;
@@ -197,6 +210,10 @@ footer > nav > ul {
   margin-left: 150px;
   width: 900px;
   float: left;
+}
+/* check here */
+nav > ul > li {
+  display: inline;
 }
 
 .bold {
@@ -223,12 +240,18 @@ footer > nav > ul {
 
 /* formatting for storeUpdateForm */
 
+#home {
+color: rgb(36, 106, 36);
+font-size: 18pt;
+}
+
 form {
   width: 960px;
   margin-left: 20px;
 }
 
 fieldset{
+  background-color: rgb(212, 226, 212);
   font-size: 14pt;
   border: 1px solid #444444;
   border-radius: 10px;
@@ -238,6 +261,7 @@ fieldset{
 
 legend{
   font-size: 18pt;
+  font-weight: bold;
 }
 
 label{
@@ -250,13 +274,13 @@ input{
 }
 
 input:valid {
-  background: rgb(240, 240, 240);
   border: 1px solid rgb(51, 6, 23);
   border-radius: 5px;
+  background-color: rgb(184, 179, 179);
 }
 
 input:invalid:required {
-  background-color: rgb(184, 179, 179);
+  background: rgb(240, 240, 240);
   border: 2px dotted rgb(51, 6, 23);
   border-radius: 5px;
 }
@@ -265,11 +289,11 @@ button {
   height: 40px;
   width: 80px;
   margin-top: 15px;
-  background-color: darkslategrey;
+  background-color: rgb(28, 91, 28);
   color: rgb(240, 240, 240);
   border-radius: 20px;
+  overflow: hidden;
 }
-
 
 /* formatting for table */
 
@@ -277,9 +301,16 @@ table {
   border: solid rgb(15, 15, 15);
   border-collapse: collapse;
   margin: 20px;
+  background-color: rgb(168, 190, 168);
 }
 
 th, td {
   border: solid rgb(15, 15, 15);
   padding: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(8, 38, 8)
+}
+
+tr:hover {
+  background-color: rgb(114, 159, 114);
 }
